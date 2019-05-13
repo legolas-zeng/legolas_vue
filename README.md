@@ -1,21 +1,52 @@
-# legolas_vue
+### TODO  
 
-> A Vue.js project
+#### 初始化
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
+cd legolas_vue
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+npm install element-ui -S
+```
+注释掉App.vue里面的log.png图片
+```
+<template>
+  <div id="app">
+    <!--<img src="./assets/logo.png">-->
+    <router-view/>
+  </div>
+</template>
+```
+#### 添加第一个页面
+在`/router/index.js`添加一个路由,随便给个名字。
+
+```
+{
+      path: '/home',
+      name: 'Home',
+      component: Home,
+    }
+
+```
+然后在`/src/components/`新建个组件结构，这个结构就是页面的代码，随便写点。
+
+```
+<template>
+  <el-row>
+    <el-button round>圆角按钮</el-button>
+    <el-button type="primary" round>主要按钮</el-button>
+    <el-button type="success" round>成功按钮</el-button>
+    <el-button type="info" round>信息按钮</el-button>
+    <el-button type="warning" round>警告按钮</el-button>
+    <el-button type="danger" round>危险按钮</el-button>
+  </el-row>
+</template>
+
+```
+这个时候就可以在路由`/router/index.js`里引用这个组件：
+```
+import Home from '@/components/Home'
+```
+访问`http://localhost:8080/#/home`,就可以看到。
+
+
+
